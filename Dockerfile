@@ -1,5 +1,5 @@
 FROM rust:latest
-RUN apt update && apt install -y binutils-arm-none-eabi git bubblewrap
+RUN apt update && apt install -y binutils-arm-none-eabi git bubblewrap libnewlib-arm-none-eabi
 RUN apt-get clean autoclean && apt-get autoremove --yes && rm -rf /var/lib/{apt,dpkg,cache,log}/
 RUN rustup install nightly
 RUN rustup +nightly component add rust-src
