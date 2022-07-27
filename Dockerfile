@@ -8,4 +8,4 @@ WORKDIR /data
 RUN git clone https://github.com/Retrobrew/gba.git
 RUN cd gba && cargo install cargo-make && cargo install gbafix
 WORKDIR /data/gba
-ENTRYPOINT bwrap --unshare-all --share-net --ro-bind / / --dev-bind /usr/local/cargo/registry/ /usr/local/cargo/registry/ --dev-bind /data /data ./make_example.sh rom
+ENTRYPOINT bwrap --unshare-all --share-net --ro-bind / / --dev-bind /tmp /tmp --dev-bind /usr/local/cargo/registry/ /usr/local/cargo/registry/ --dev-bind /data /data ./make_example.sh rom
